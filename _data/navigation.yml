@@ -40,28 +40,28 @@ pages:
         
   - title: "Hands On"
     children:
-      - title: "Part 1 - Kmer analysis"
+      - title: "Part 1 - Introduction to the Pipeline for Metabarcoding Analysis (PIMBA)"
         url: /handsOn_1/
-      - title: "Part 1 - Plot Reads Length"
+      - title: "Part 1 - Quality treatment with PIMBA_prepare"
         url: /handsOn_plotReadLength/        
-      - title: "Part 2 - Genome Assembly"
+      - title: "Part 2 - Preparing a reference database"
         url: /handsOn_2/
-      - title: "Extra - BLAST"
-        url: /handsOn_3/
-      - title: "Extra - Mapping"
-        url: /handsOn_4
-      - title: "Part 3 - Purging and Merqury"
+      #- title: "Extra - BLAST"
+      #  url: /handsOn_3/
+      #- title: "Extra - Mapping"
+      #  url: /handsOn_4
+      - title: "Part 3 - Clusterization with PIMBA_run"
         url: /handsOn_5_purgin-merqury/
-      - title: "Part 3.2 - Purging and Merqury drUrtUren1"
-        url: /handsOn_purging2/
-      - title: "Part 4 - SALSA2 scaffolding"
+      #- title: "Part 3.2 - Purging and Merqury drUrtUren1"
+      #  url: /handsOn_purging2/
+      - title: "Part 4 - Obtention of diversity indexes and plots with PIMBA_plot"
         url: /handsOn_6_salsa/
-      - title: "Part 5 - Mis-assembly evaluation"
-        url: /handsOn_7_miss-assembly/
-      - title: "Part 6 - Curated assembly and final report"
-        url: /handsOn_8_curated/ 
-      - title: "Part 7 - MitoHifi"
-        url: /handsOn_9_mitohifi/
+      #- title: "Part 5 - Mis-assembly evaluation"
+      #  url: /handsOn_7_miss-assembly/
+      #- title: "Part 6 - Curated assembly and final report"
+      #  url: /handsOn_8_curated/ 
+      #- title: "Part 7 - MitoHifi"
+      #  url: /handsOn_9_mitohifi/
   
   - title: "References"
     children:
