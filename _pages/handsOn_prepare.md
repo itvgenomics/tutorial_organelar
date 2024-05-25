@@ -25,11 +25,12 @@ Example:
   ./pimba_prepare.sh ilumina rawdata/ AllSamples 24 adapters.txt 100 20
 ```
 
-### single-end reads with dual-index:
+**single-end reads with dual-index:**
 In case your single-end reads have been multiplexed with dual-index, use the following command:
-~~~
+```console  
 ./pimba_prepare.sh iontorrent-dualindex  <rawdata.fastq> <barcodes.txt> <barcodes_reverse.txt> <barcodes.fasta> <barcodes_for_dir> <Primer_forward> <Primer_reverse> <num_threads> <output_name> <min_length> <min_phred>
-~~~
+```
+
 <rawdata.fastq> = single file with all the reads to demultiplex;\
 <barcodes.txt> = barcodes used as index in the 3' of the fragment;\
 <barcodes_reverse.txt> = reverse complement of <barcodes.txt>;\
@@ -43,15 +44,16 @@ In case your single-end reads have been multiplexed with dual-index, use the fol
 <min_phred> = Minimum PHRED score of a read after quality treatment.
 
 Example:
-~~~
+```console  
 ./pimba_prepare.sh iontorrent-dualindex rawdata_chip-3-4.fastq barcodes.txt barcodes_reverse.txt barcodes.fasta barcode_for/ TCCACTAATCACAAAGANATNGGNAC AGAAAATCATAATNAANGCNTGNGC 24 AllSamplesCOI.fastq 100 20
-~~~
+```
 
-### single-end reads with single-index:
+**single-end reads with single-index:**
 In case your single-end reads have been multiplexed with single-index, use the following command:
-~~~
+
+```console  
 ./pimba_prepare.sh iontorrent-singleindex <rawdata.fastq> <prefix> <barcodes.txt> <barcodes.fasta> <primer> <num_threads> <output_name> <min_length> <min_phred>
-~~~
+```
 <rawdata.fastq> = single file with all the reads to demultiplex;\
 <prefix> = name that will precede the barcodes names;\
 <barcodes.txt> = barcodes used as index in the 5' of the fragment;\
@@ -63,6 +65,6 @@ In case your single-end reads have been multiplexed with single-index, use the f
 <min_phred> = Minimum PHRED score of a read after quality treatment.
 
 Example:
-~~~
+```console  
 ./pimba_prepare.sh iontorrent-singleindex SN1-45.fastq SN1-45-ITS barcodes.txt barcodes.fasta ATGCGATACTTGGTGTGAAT 24 AllSamples
-~~~
+```
