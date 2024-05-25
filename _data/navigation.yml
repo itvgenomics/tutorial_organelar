@@ -41,7 +41,7 @@ pages:
   - title: "Hands On"
     children:
       - title: "Part 1 - Introduction to the Pipeline for Metabarcoding Analysis (PIMBA)"
-        url: /handsOn_1/
+        url: /handsOn_pimba/
       - title: "Part 1 - Quality treatment with PIMBA_prepare"
         url: /handsOn_prepare/        
       - title: "Part 2 - Preparing a reference database"
