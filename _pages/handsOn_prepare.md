@@ -13,20 +13,23 @@ Please place all your forward and reverse reads in one directory and ensure that
 ```console  
 ./pimba_prepare.sh illumina <rawdata_dir> <output_reads> <num_threads> <adapters.txt> <min_length> <min_phred>
 ```
-<rawdata_dir> = path with all the R1 and R2 reads file;
-<output_reads> = name for the output file;
-<num_threads> = number of threads;
-<adapters.txt> = tab separated 2-column file with all adapters and primers used for sequencing;
-<min_lenght> = The minimum length of the read after quality treatment;
-<min_phred> = Minimum PHRED score of a read after quality treatment.
+
+`rawdata_dir` = path with all the R1 and R2 reads file;
+`output_reads` = name for the output file;
+`num_threads` = number of threads;
+`adapters.txt` = tab separated 2-column file with all adapters and primers used for sequencing;
+`min_lenght` = The minimum length of the read after quality treatment;
+`min_phred` = Minimum PHRED score of a read after quality treatment. 
 
 Example:
+
 ```console  
   ./pimba_prepare.sh ilumina rawdata/ AllSamples 24 adapters.txt 100 20
 ```
 
 **single-end reads with dual-index:**
 In case your single-end reads have been multiplexed with dual-index, use the following command:
+
 ```console  
 ./pimba_prepare.sh iontorrent-dualindex  <rawdata.fastq> <barcodes.txt> <barcodes_reverse.txt> <barcodes.fasta> <barcodes_for_dir> <Primer_forward> <Primer_reverse> <num_threads> <output_name> <min_length> <min_phred>
 ```
@@ -44,6 +47,7 @@ In case your single-end reads have been multiplexed with dual-index, use the fol
 <min_phred> = Minimum PHRED score of a read after quality treatment.
 
 Example:
+
 ```console  
 ./pimba_prepare.sh iontorrent-dualindex rawdata_chip-3-4.fastq barcodes.txt barcodes_reverse.txt barcodes.fasta barcode_for/ TCCACTAATCACAAAGANATNGGNAC AGAAAATCATAATNAANGCNTGNGC 24 AllSamplesCOI.fastq 100 20
 ```
@@ -65,6 +69,7 @@ In case your single-end reads have been multiplexed with single-index, use the f
 <min_phred> = Minimum PHRED score of a read after quality treatment.
 
 Example:
+
 ```console  
 ./pimba_prepare.sh iontorrent-singleindex SN1-45.fastq SN1-45-ITS barcodes.txt barcodes.fasta ATGCGATACTTGGTGTGAAT 24 AllSamples
 ```
