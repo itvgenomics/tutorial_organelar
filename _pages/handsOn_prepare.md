@@ -28,23 +28,24 @@ Example:
 ```
 
 **single-end reads with dual-index:**
+
 In case your single-end reads have been multiplexed with dual-index, use the following command:
 
 ```console  
 ./pimba_prepare.sh iontorrent-dualindex  <rawdata.fastq> <barcodes.txt> <barcodes_reverse.txt> <barcodes.fasta> <barcodes_for_dir> <Primer_forward> <Primer_reverse> <num_threads> <output_name> <min_length> <min_phred>
 ```
 
-<rawdata.fastq> = single file with all the reads to demultiplex;\
-<barcodes.txt> = barcodes used as index in the 3' of the fragment;\
-<barcodes_reverse.txt> = reverse complement of <barcodes.txt>;\
-<barcodes.fasta> = fasta file for the <barcodes.txt>;\
-<barcodes_for_dir> = path to all the barcodes.fasta and barcodes.txt used in the 5'  of the fragment. Each 3' barcode must have a fasta and txt file with all the associated 5' barcodes;\
-<Primer_forward> = sequence of the forward primer;\
-<Primer_reverse> = sequence of the reverse primer;\
-<num_threads> = number of threads;\
-<output_name> = name for the output fastq file;\
-<min_length> = The minimum length of the read after quality treatment;\
-<min_phred> = Minimum PHRED score of a read after quality treatment.
+`rawdata.fastq` = single file with all the reads to demultiplex;\
+`barcodes.txt` = barcodes used as index in the 3' of the fragment;\
+`barcodes_reverse.txt` = reverse complement of `barcodes.txt`;\
+`barcodes.fasta` = fasta file for the `barcodes.txt`;\
+`barcodes_for_dir` = path to all the barcodes.fasta and barcodes.txt used in the 5'  of the fragment. Each 3' barcode must have a fasta and txt file with all the associated 5' barcodes;\
+`Primer_forward` = sequence of the forward primer;\
+`Primer_reverse` = sequence of the reverse primer;\
+`num_threads` = number of threads;\
+`output_name` = name for the output fastq file;\
+`min_length` = The minimum length of the read after quality treatment;\
+`min_phred` = Minimum PHRED score of a read after quality treatment.
 
 Example:
 
@@ -53,20 +54,22 @@ Example:
 ```
 
 **single-end reads with single-index:**
+
 In case your single-end reads have been multiplexed with single-index, use the following command:
 
 ```console  
 ./pimba_prepare.sh iontorrent-singleindex <rawdata.fastq> <prefix> <barcodes.txt> <barcodes.fasta> <primer> <num_threads> <output_name> <min_length> <min_phred>
 ```
-<rawdata.fastq> = single file with all the reads to demultiplex;\
-<prefix> = name that will precede the barcodes names;\
-<barcodes.txt> = barcodes used as index in the 5' of the fragment;\
-<barcodes.fasta> = fasta file for the <barcodes.txt>;\
-<primer> = primer sequence;\
-<num_threads> = number of threads;\
-<output_name> = name for the output fastq file;\
-<min_lenght> = The minimum length of the read after quality treatment;\
-<min_phred> = Minimum PHRED score of a read after quality treatment.
+
+`rawdata.fastq` = single file with all the reads to demultiplex;\
+`prefix` = name that will precede the barcodes names;\
+`barcodes.txt` = barcodes used as index in the 5' of the fragment;\
+`barcodes.fasta` = fasta file for the `barcodes.txt`;\
+`primer` = primer sequence;\
+`num_threads` = number of threads;\
+`output_name` = name for the output fastq file;\
+`min_lenght` = The minimum length of the read after quality treatment;\
+`min_phred` = Minimum PHRED score of a read after quality treatment.
 
 Example:
 
