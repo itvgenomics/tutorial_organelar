@@ -31,11 +31,11 @@ pages:
   
   - title: "Setting up the environment"
     children:
-      - title: "- Installing IGV"
+      - title: "- For Windows Users"
         url: /igv_installation/ 
-      - title: "- Installing PretextView" 
+      - title: "- For Linux Users" 
         url: /pretextView_installation/
-      - title: "- Setting up conda" 
+      - title: "- Downloading databases" 
         url: /conda_setup/
         
   - title: "Hands On"
