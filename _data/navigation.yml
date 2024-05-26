@@ -32,8 +32,8 @@ pages:
   - title: "Setting up the environment"
     children:
       - title: "- For Windows Users"
-        url: /igv_installation/ 
-      - title: "- For Linux Users" 
+        url: /windows_users/ 
+      - title: "- For Linux and Mac Users" 
         url: /pretextView_installation/
       - title: "- Downloading databases" 
         url: /conda_setup/
