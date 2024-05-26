@@ -12,7 +12,7 @@ Para tal, siga as intruções do [tutorial](https://marcelo-albuquerque.medium.c
 obs1: Escolha instalar o Ubuntu 22.04 LTS.
 
 Abra o terminal Ubuntu como o da imagem abaixo e digite o seguinte comando
-![](/images/ubuntu.PNG)
+![](/images/ubuntu.png)
 
 
 ```console
