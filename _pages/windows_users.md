@@ -19,5 +19,14 @@ Abra o terminal Ubuntu como o da imagem abaixo e digite o seguinte comando
 sudo apt-get install bc
 ```
 
-Após a devida configuração do WSL2 e instalação do Ubuntu, agora você precisa instalar o software Docker.
+Após a devida configuração do WSL2 e instalação do Ubuntu, agora você precisa instalar o software Docker Desktop.
 Baixe o instalador [aqui](https://desktop.docker.com/win/main/amd64/Docker%20Desktop%20Installer.exe?utm_source=docker&utm_medium=webreferral&utm_campaign=dd-smartbutton&utm_location=module&_gl=1*6n2oph*_ga*MzM5NjI4NTIxLjE3MTIyNjcxNDI.*_ga_XJWPQMJYHQ*MTcxNjY5NzMzOS4xMS4wLjE3MTY2OTczMzkuNjAuMC4w)
+
+Após a instalação do Docker Desktop, também é necessário instalar um módulo do docker no terminal WSL2.
+Abra o terminal do Ubuntu e digite o seguinte comando:
+
+```console
+sudo apt-get install docker.io
+```
+
+Após tudo configurado, baixe os scripts da ferramenta PIMBA para seu computador. Os scripts podem ser baixados nense [link](https://github.com/reinator/pimba/tree/main)
