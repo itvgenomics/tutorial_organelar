@@ -1,7 +1,7 @@
 ---
 title: "Linux and Mac Users"
 layout: archive
-permalink: /linuxmax_users/
+permalink: /linuxmac_users/
 ---  
 
 ### Usuários de Linux e Mac
