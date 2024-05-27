@@ -34,7 +34,7 @@ pages:
       - title: "- For Windows Users"
         url: /windows_users/ 
       - title: "- For Linux and Mac Users" 
-        url: /pretextView_installation/
+        url: /linuxamac_users/
       - title: "- Downloading databases" 
         url: /conda_setup/
         
