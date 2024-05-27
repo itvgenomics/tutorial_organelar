@@ -34,7 +34,7 @@ pages:
       - title: "- For Windows Users"
         url: /windows_users/ 
       - title: "- For Linux and Mac Users" 
-        url: /linuxamac_users/
+        url: /linuxmac_users/
       - title: "- Downloading databases" 
         url: /download_databases/
         
