@@ -36,7 +36,7 @@ pages:
       - title: "- For Linux and Mac Users" 
         url: /linuxamac_users/
       - title: "- Downloading databases" 
-        url: /conda_setup/
+        url: /download_databases/
         
   - title: "Hands On"
     children:
