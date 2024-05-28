@@ -12,4 +12,4 @@ Crie um diretório chamado `database` no seu computador. Entre nesse diretório 
 
 Da mesma forma, dentro da pasta `database`, crie uma pasta chamada `ITS`. Baixe e descompacte o arquivo abaixo e coloque dentro da pasta `ITS` criada.
 
-2 - Banco de Referências ITS-Planta ([Baixar](https://1drv.ms/u/s!Aq5Vg7CO1tohhbgx2w-17eVfupu1QA?e=hcH7of)).
+2 - Banco de Referências ITS-Planta ([Baixar](https://1drv.ms/u/s!Aq5Vg7CO1tohhbgx2w-17eVfupu1QA?e=4TsT03)).
