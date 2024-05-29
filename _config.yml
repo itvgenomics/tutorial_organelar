@@ -19,7 +19,7 @@ locale                   : "en-US"
 title                    : "Montagem de Genomas de Referência Usando PacBio e Hi-C"
 title_separator          : "|"
 name                     : "Marcela Uliano"
-description              : "Workshop GBB, Dezembro de 2023"
+description              : "Disciplina de metabarcoding, Junho de 2024"
 url                      : #https://gbb_montagem_workshop.github.io
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : itvgenomics/gbb_montagem_workshop
