@@ -16,13 +16,13 @@ minimal_mistakes_skin    : "contrast" # "air", "aqua", "contrast", "dark", "dirt
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Montagem de Genomas de Referência Usando PacBio e Hi-C"
+title                    : "Disciplina de metabarcoding"
 title_separator          : "|"
-name                     : "Marcela Uliano"
+name                     : "Santelmo Vasconcelos e Renato Oliveira"
 description              : "Disciplina de metabarcoding, Junho de 2024"
 url                      : #https://gbb_montagem_workshop.github.io
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : itvgenomics/gbb_montagem_workshop
+repository               : itvgenomics/tutorial_metabarcoding
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 breadcrumbs              : true # true, false (default)
 words_per_minute         : 200
