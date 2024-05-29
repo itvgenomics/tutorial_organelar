@@ -3,14 +3,14 @@ layout: archive
 permalink: /
 ---
 
-![](/gbb_montagem_workshop/images/other/banner_curso.svg)
+![](/tutorial_metabarcoding/images/banner.png)
 
-Bem-vindo(a) ao Workshop de Montagem de Genomas Nucleares do Projeto Genômica da Biodiversidade Brasileira ([GBB](https://www.itv.org/projeto-genomica-da-biodiversidade-brasileira/)).
-O curso será ministrado pela Dra. Marcela Uliano, tendo como monitor o Dr. Renato Oliveira.
+Bem-vindo(a) ao Tutorial de análises de metabarcoding.
+A disciplina será ministrada pelo Dr. Santelmo Vasconcelos e pelo Dr. Renato Oliveira.
 
-Acesse os links no painel à esquerda para acessar os módulos do curso.
+Acesse os links no painel à esquerda para acessar os módulos da disciplina.
 
-Neste curso serão apresentados os métodos que estão presentes em um fluxo de trabalho de montagem de genomas usual, começando com o tratamento dos dados brutos e terminando com um genoma completamente montado. Veremos como manipular leituras brutas, analisar sua qualidade, como executar diferentes algoritmos de montagem, como executar algoritmos de scaffolding Hi-C e como avaliar a qualidade da montagem
+Neste curso serão apresentados os métodos que estão presentes em um fluxo de análise de metabarcoding, começando com o tratamento dos dados brutos e terminando com índices de diversidade e perfis taxonômicos. Veremos como manipular leituras brutas, como executar a clusterização em unidades taxonômicas, configurar bancos de dados personalizados e como preparar os metadados das amostras a fim de se obter índices de alfa e beta diversidade;
 
 #### Agradecimentos
 Este site-tutorial foi baseado no site desenvolvido pela Marcela Uliano e pelo João Ferreira, no curso que ambos ministram no Physalia sobre [Montagem de genomas eucarióticos](https://eukaryotic-genome-assembly.github.io/). Deixamos aqui nossos agradecimentos!
