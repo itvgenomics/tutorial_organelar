@@ -37,6 +37,8 @@ pages:
         url: /linuxmac_users/
       - title: "- Downloading databases" 
         url: /download_databases/
+      - title: "- Downloading datasets" 
+        url: /download_datasets/
         
   - title: "Hands On"
     children:
