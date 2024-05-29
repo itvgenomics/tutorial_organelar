@@ -16,10 +16,10 @@ minimal_mistakes_skin    : "contrast" # "air", "aqua", "contrast", "dark", "dirt
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Disciplina de metabarcoding"
+title                    : "Tutorial de metabarcoding"
 title_separator          : "|"
 name                     : "Santelmo Vasconcelos e Renato Oliveira"
-description              : "Disciplina de metabarcoding, Junho de 2024"
+description              : "Tutorial de metabarcoding, Junho de 2024"
 url                      : #https://gbb_montagem_workshop.github.io
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : itvgenomics/tutorial_metabarcoding
