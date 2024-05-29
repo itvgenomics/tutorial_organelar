@@ -50,12 +50,12 @@ pages:
       #  url: /handsOn_3/
       #- title: "Extra - Mapping"
       #  url: /handsOn_4
-      - title: "Part 3 - Clusterization with PIMBA_run"
-        url: /handsOn_5_purgin-merqury/
+      ###- title: "Part 3 - Clusterization with PIMBA_run"
+      ###  url: /handsOn_5_purgin-merqury/
       #- title: "Part 3.2 - Purging and Merqury drUrtUren1"
       #  url: /handsOn_purging2/
-      - title: "Part 4 - Obtention of diversity indexes and plots with PIMBA_plot"
-        url: /handsOn_6_salsa/
+      ###- title: "Part 4 - Obtention of diversity indexes and plots with PIMBA_plot"
+      ###  url: /handsOn_6_salsa/
       #- title: "Part 5 - Mis-assembly evaluation"
       #  url: /handsOn_7_miss-assembly/
       #- title: "Part 6 - Curated assembly and final report"
