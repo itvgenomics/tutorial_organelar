@@ -9,7 +9,7 @@ permalink: /installing_fastqc/
 O [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) é um software que permite visualizar a qualidade das bases de uma amostra sequenciada. 
 Além disso, também permite verificar algumas outras métricas de qualidade do sequenciamento, como presença de contaminantes, sequências artefatos, frequência de nucleotídeos, etc.
 
-![image](https://github.com/itvgenomics/tutorial_metabarcoding/assets/5761537/d1c90116-8f0c-4405-a127-59403f821159)
+![image](/tutorial_metabarcoding/images/fastqc.png)
 
 
 Se você utiliza Ubuntu ou o WSL2 no Windows, abra um terminal e digite o seguinte comando:
