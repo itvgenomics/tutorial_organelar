@@ -4,10 +4,10 @@ main:
     url: https://itvgenomics.github.io/tutorial_metabarcoding/
   - title: "Sobre"
     url: https://itvgenomics.github.io/tutorial_metabarcoding/about/
-  - title: "Como logar no cluster"
-    url: https://itvgenomics.github.io/tutorial_metabarcoding/logging_on/
-  - title: "Como submeter comandos/jobs"
-    url: https://itvgenomics.github.io/tutorial_metabarcoding/submitting_jobs/
+  #- title: "Como logar no cluster"
+  #  url: https://itvgenomics.github.io/tutorial_metabarcoding/logging_on/
+  #- title: "Como submeter comandos/jobs"
+  #  url: https://itvgenomics.github.io/tutorial_metabarcoding/submitting_jobs/
 
 pages:
   - title: "Unix Tutorial"
