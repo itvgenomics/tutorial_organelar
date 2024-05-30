@@ -39,6 +39,8 @@ pages:
         url: /download_databases/
       - title: "- Downloading datasets" 
         url: /download_datasets/
+      - title: "- Installing FastQC" 
+        url: /install_fastqc/
         
   - title: "Hands On"
     children:
