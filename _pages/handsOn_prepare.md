@@ -4,6 +4,24 @@ layout: archive
 permalink: /handsOn_prepare/
 ---  
 
+Before running PIMBA, let's examine whether the base quality of the dataset you have chosen is good or bad.
+Go to the folder `disciplina_metabarcoding/your_dataset/` and replace `your_dataset` with your chosen dataset.
+If you use the `ls` command, you can list and view all the FASTQ files in the dataset.
+
+```console  
+cd disciplina_metabarcoding/your_dataset/
+ls
+```
+
+Considering you have installed FastQC successfully, just type the command below and wait for FastQC to analyze your dataset.
+```console  
+fastqc *
+```
+
+FastQC generated the HTML files that will allow you to see the base quality of your data.
+
+Now let's PIMBA!
+
 The first step in running PIMBA is to prepare your data. PIMBA can be used with paired-end or single-end reads (the latter being single-index or dual-index). The output will be a Fasta file that can be used in the next step. In this tutorial, we will use only paired-end reads, but you can check at the end how to prepare single-end reads with dual and single-indexes.
 
 **Paired-end reads**
