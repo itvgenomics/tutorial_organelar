@@ -45,6 +45,16 @@ Example:
   ./pimba_prepare.sh ilumina rawdata/ AllSamples 24 adapters.txt 100 20
 ```
 
+When pimba_prepare finishes, it will create a FASTA file with the name of the parameter `output_reads` you have chosen. Let's assume it is called `AllSamples`.\
+This FASTA file gatheres all reads from all samples in a unique file (hence the name `AllSamples`).
+If you wish to know how many reads remained after quality treatment in this file, you can use the command bellow:
+
+```console  
+  grep -c ">" AllSamples.fasta
+```
+
+Another created FASTA file ends with `withSingleton. This file contains the same reads that the other FASTA file, but also with the reads that have good quality, but were not paired.
+
 **single-end reads with dual-index:**
 
 In case your single-end reads have been multiplexed with dual-index, use the following command:
