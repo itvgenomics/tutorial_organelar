@@ -54,8 +54,8 @@ pages:
       #  url: /handsOn_3/
       #- title: "Extra - Mapping"
       #  url: /handsOn_4
-      ###- title: "Part 3 - Clusterization with PIMBA_run"
-      ###  url: /handsOn_5_purgin-merqury/
+      - title: "Part 2 - Clusterization with PIMBA_run"
+        url: /handsOn_run/
       #- title: "Part 3.2 - Purging and Merqury drUrtUren1"
       #  url: /handsOn_purging2/
       ###- title: "Part 4 - Obtention of diversity indexes and plots with PIMBA_plot"
