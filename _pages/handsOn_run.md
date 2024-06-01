@@ -1,5 +1,5 @@
 ---
-title: "Clusterin with pimba_run"
+title: "Clustering with pimba_run"
 layout: archive
 permalink: /handsOn_run/
 ---  
