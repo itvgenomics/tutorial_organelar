@@ -30,3 +30,23 @@ sudo apt-get install docker.io
 ```
 
 Após tudo configurado, baixe os scripts da ferramenta PIMBA para seu computador. Os scripts podem ser baixados nense [link](https://github.com/reinator/pimba/tree/main)
+
+Salve o arquivo baixado em uma pasta no seu computador. Minha sugestão é que você crie uma pasta chamada `disciplina_metabarcoding` e guarde os arquivos baixados nela. 
+
+Após descompactar o arquivo baixado do PIMBA, descompacte-a (clicando com o botão direito e selecionando a opção de desompactar).Você vai precisar dar permissão de execução para os arquivos dessa pasta. Para isso, faça o seguinte:
+
+Entre no diretório onde está a pasta:
+```console
+cd disciplina_metabarcoding/
+```
+
+Liste se a pasta baixada e descompactada está realmente presente:
+```console
+ls
+```
+
+Vendo que tudo está certo, dê o seguinte comando para habilitar o modo de execução dos arquivos do PIMBA:
+
+```console
+chmod -R +x pimba_main
+```
