@@ -69,7 +69,7 @@ pages:
 
   - title: "Relatório"
     children:
-      - title: "Datasets para o relatório"
+      - title: "Datasets e questões para o relatório"
         url: /report_datasets/
 
   - title: "References"
