@@ -66,7 +66,12 @@ pages:
       #  url: /handsOn_8_curated/ 
       #- title: "Part 7 - MitoHifi"
       #  url: /handsOn_9_mitohifi/
-  
+
+  - title: "Relatório"
+    children:
+      - title: "Datasets para o relatório"
+        url: /report_datasets/
+
   - title: "References"
     children:
       - title: "Papers"
