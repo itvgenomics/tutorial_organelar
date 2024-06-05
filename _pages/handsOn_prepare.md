@@ -15,7 +15,8 @@ ls
 
 Considering you have installed FastQC successfully, just type the command below and wait for FastQC to analyze your dataset.
 ```console  
-fastqc *
+mkdir fastqc_output
+fastqc -o fastqc_output *
 ```
 
 FastQC generated the HTML files that will allow you to see the base quality of your data.
@@ -104,3 +105,7 @@ Example:
 ```console  
 ./pimba_prepare.sh iontorrent-singleindex SN1-45.fastq SN1-45-ITS barcodes.txt barcodes.fasta ATGCGATACTTGGTGTGAAT 24 AllSamples
 ```
+
+**Questões para o relatório**
+
+1 - Escolha duas amostras específicas do seu dataset
