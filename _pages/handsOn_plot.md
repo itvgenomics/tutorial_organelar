@@ -1,10 +1,11 @@
 ---
-title: "Part 4 - SALSA2 Scaffolding"
+title: "Part 4 - Diversity indexes with pimba_plot"
 layout: archive
 permalink: /handsOn_plot/
 ---
 
 ## Plot your results (pimba_plot.sh)
+
 When finished with pimba_run.sh, you will be able to generate some basic plots for your results, such as PCoA, rarefaction curves, alpha and beta diversity plots.
 You will need only two files that pimba_run.sh will generate and one metadata file that you must provide.
 
