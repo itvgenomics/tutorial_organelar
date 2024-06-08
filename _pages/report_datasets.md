@@ -46,4 +46,10 @@ Com base no sorteio realizado, baixe o dataset abaixo que você ficou responsáv
 
 4) Altere o parâmetro de similaridade `-s ` e responda as questões 1 e 2 considerando esses novos resultados. (30pts)
 
+## Rode o pimba_plot, coloque o comando usado e responda as perguntas abaixo com relação à obtenção dos índices de diversidade:
 
+1) Analisando a curva de rarefação obtida pra sua análise, você diria que quais amostras estão sendo bem representadas e quais amostras merecem ser mais sequenciadas.(30pts)
+
+2) Analise o gráfico de PCoA que foi gerado. Informe quais amostras estão bem agrupadas e quais não parecem estar tão bem agrupadas (30pts). Qual explicação você daria pra tal comportamento?
+
+3) Analise a tabela de freqência de otus (otu_table.txt) gerada pra sua análise. Verifique se existe alguma OTU que aparece apenas uma vez em alguma amostra. Considerando essa amostra, calcule então sua estimativa de good considerando apenas o total de OTUs, e não o total de reads da amostra. Quanto maior o valor da estimativa, mais bem representada a amostra está. O que você diria sobre a amostra escolhida? (40pts)
