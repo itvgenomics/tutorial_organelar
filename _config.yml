@@ -18,11 +18,11 @@ minimal_mistakes_skin    : "contrast" # "air", "aqua", "contrast", "dark", "dirt
 locale                   : "en-US"
 title                    : "Tutorial de metabarcoding"
 title_separator          : "|"
-name                     : "Santelmo Vasconcelos e Renato Oliveira"
-description              : "Tutorial de metabarcoding, Junho de 2024"
+name                     : "Gisele Nunes e Renato Oliveira"
+description              : "Tutorial de metabarcoding, Março de 2025"
 url                      : #https://gbb_montagem_workshop.github.io
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : itvgenomics/tutorial_metabarcoding
+repository               : itvgenomics/tutorial_metabarcoding_v3
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 breadcrumbs              : true # true, false (default)
 words_per_minute         : 200
