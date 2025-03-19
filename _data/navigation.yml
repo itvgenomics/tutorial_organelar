@@ -31,10 +31,12 @@ pages:
   
   - title: "Setting up the environment"
     children:
-      - title: "- For Windows Users"
-        url: /windows_users/ 
-      - title: "- For Linux and Mac Users" 
-        url: /linuxmac_users/
+      #- title: "- For Windows Users"
+      #  url: /windows_users/ 
+      #- title: "- For Linux and Mac Users" 
+      #  url: /linuxmac_users/
+      - title: "- Accessing the server"
+        url: /access_server/
       - title: "- Downloading databases" 
         url: /download_databases/
       - title: "- Downloading datasets" 
