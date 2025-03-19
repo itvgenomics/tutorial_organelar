@@ -3,10 +3,10 @@ layout: archive
 permalink: /
 ---
 
-![](/tutorial_metabarcoding/images/banner.png)
+![](/tutorial_metabarcoding_v3/images/banner.png)
 
 Bem-vindo(a) ao Tutorial de análises de metabarcoding.
-A disciplina será ministrada pelo Dr. Santelmo Vasconcelos e pelo Dr. Renato Oliveira, com monitoria sendo feita pelo Dr. Marx Lima.
+A disciplina será ministrada pela Dra. Gisele Nunes e pelo Dr. Renato Oliveira.
 
 Acesse os links no painel à esquerda para acessar os módulos da disciplina.
 
