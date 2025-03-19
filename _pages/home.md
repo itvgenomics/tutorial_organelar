@@ -2,7 +2,9 @@
 layout: archive
 permalink: /
 ---
-
+<p align="center">
+<img src="images/banner.png" width="50%">
+</p>
 ![](/tutorial_metabarcoding_v3/images/banner.png)
 
 Bem-vindo(a) ao Tutorial de análises de metabarcoding.
