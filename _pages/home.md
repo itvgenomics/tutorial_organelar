@@ -7,7 +7,7 @@ permalink: /
 </p>
 
 Bem-vindo(a) ao Tutorial de análises de metabarcoding.
-A disciplina será ministrada pela Dra. Gisele Nunes e pelo Dr. Renato Oliveira.
+O curso será ministrada pela Dra. Gisele Nunes e pelo Dr. Renato Oliveira.
 
 Acesse os links no painel à esquerda para acessar os módulos da disciplina.
 
