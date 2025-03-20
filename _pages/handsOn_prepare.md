@@ -5,21 +5,28 @@ permalink: /handsOn_prepare/
 ---  
 
 Before running PIMBA, let's examine whether the base quality of the dataset you have chosen is good or bad.
-Go to the folder `disciplina_metabarcoding/your_dataset/` and replace `your_dataset` with your chosen dataset.
+Go to the folder `~/cursos/MetabarcodingITV2025/<your_dataset>/` and replace `<your_dataset>` with your chosen dataset.
 If you use the `ls` command, you can list and view all the FASTQ files in the dataset.
 
 ```console  
-cd disciplina_metabarcoding/your_dataset/
+cd ~/cursos/MetabarcodingITV2025/<your_dataset>/
 ls
 ```
-
-Considering you have installed FastQC successfully, just type the command below and wait for FastQC to analyze your dataset.
+To run FastQC in the biotec02 server, you need to load the software module with the following command:
 ```console  
-mkdir fastqc_output
-fastqc -o fastqc_output *
+module load Bio/FastQC/0.12.1
 ```
 
+Once you have loaded the FastQC module correctly, just type the command below and wait for FastQC to analyze your dataset.
+```console  
+fastqc *.fastq
+```
 FastQC generated the HTML files that will allow you to see the base quality of your data.
+You can combine all quality reports into a single file with MultiQC.
+### WARNING ❗ :exclamation:
+As explained, you can't run this command directly from the terminal. Therefore, copy the file `multiqc.slurm` that is in the directory `/home/scripts/multiqc.slurm` to the folder where you are going to run fastqc.
+
+Open the `multiqc.slurm` file, check if everything is correct, and submit the job to the processing queue, as explained [here](https://itvgenomics.github.io/tutorial_metabarcoding_v3/submitting_jobs/)
 
 Now let's PIMBA!
 
