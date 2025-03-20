@@ -4,7 +4,7 @@ layout: archive
 permalink: /handsOn_pimba/
 ---  
 
-# PIMBA - A PIpeline for MetaBarcoding Analysis
+# PIMBA 3.0 - A PIpeline for MetaBarcoding Analysis
 PIMBA allows the use of customized databases, as well as other reference databases.
 
 ## How to cite?
@@ -19,10 +19,43 @@ OLIVEIRA, RENATO RENISON MOREIRA; SILVA, R. L. ; NUNES, GISELE LOPES ; OLIVEIRA,
 ```
 
 ## How to install?
-To run PIMBA, you just need to have [docker](https://docs.docker.com) installed in your operational system.
+After you have logged in to the Biotec02 server, you will need to create the environment to run PIMBA. Type the following commands in a terminal console:
 
 ```console  
-sudo apt-get install docker.io
+export MAMBA_ROOT_PREFIX=$HOME/pkgmngrs/Micromamba/
+eval "$(/home/program2/bin/Micromamba/2.0.5-0/bin/micromamba shell hook -s posix)"
+micromamba create -n snakemake_env -c bioconda -c conda-forge singularity=3.8.6 snakemake=7.32.4
+```
+
+Once you have created the environment, you will need to activate it:
+
+```console  
+micromamba activate snakemake_env
+```
+
+We recommend to create a folder where you will save your data and run the analysis during the course:
+```console  
+mkdir -p ~/cursos/MetabarcodingITV2025/
+```
+
+Now we will enter the folder you have created:
+```console  
+cd ~/cursos/MetabarcodingITV2025/
+```
+
+Then you just need to download the software PIMBA into the folder:
+```console  
+git clone https://github.com/itvgenomics/pimba_smk.git
+```
+
+You can enter the downloaded folder:
+```console  
+cd pimba_smk/
+```
+
+To see the files in the folder you have downloaded, type the following command:
+```console  
+ls
 ```
 
 And that's all! Now you can run PIMBA on your data!
