@@ -15,4 +15,4 @@ Acesse [aqui](https://1drv.ms/u/s!Aq5Vg7CO1tohhb0jIKIcgp3D0Ad0MA?e=XGSh6m) os me
 Este dataset é composto por 21 amostras de solo coletadas da Lua (contém ironia).
 Acesse [aqui](https://1drv.ms/u/s!Aq5Vg7CO1tohhb0f0pHAzR80VjC3NQ?e=tpSRxW) os metadados das amostras.
 
-Salve os dados baixados no diretório que você criou para a disciplina. (`disciplina_metabarcoding`)
+Salve os dados baixados no diretório que você criou para a disciplina. (`~/cursos/MetabarcodingITV2025/`)
