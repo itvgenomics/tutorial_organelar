@@ -30,31 +30,70 @@ Open the `multiqc.slurm` file, check if everything is correct, and submit the jo
 
 Now let's PIMBA!
 
-The first step in running PIMBA is to prepare your data. PIMBA can be used with paired-end or single-end reads (the latter being single-index or dual-index). The output will be a Fasta file that can be used in the next step. In this tutorial, we will use only paired-end reads, but you can check at the end how to prepare single-end reads with dual and single-indexes.
+The first step in running PIMBA is to prepare your data. PIMBA can be used with paired-end or single-end reads (the latter being single-index or dual-index). The output will be a Fasta file that can be used in the next step. In this tutorial, we will use only paired-end reads, but you can check how to prepare single-end reads with dual and single-indexes [here](https://github.com/itvgenomics/pimba_smk/blob/main/README.md#a-configure-the-configyaml-file).
 
-**Paired-end reads**
+### A) Configure the config.yaml File
 
-Please place all your forward and reverse reads in one directory and ensure that forward reads contain "R1" and reverse reads contain "R2" in the file name.
+The config.yaml file (~/cursos/MetabarcodingITV2025/pimba_smk/config/config.yaml) is the general configuration file. It should contain parameters such as the maximum number of processors, adapter sequences, input file paths, etc. Open the file in a text editor and make the following modifications. **Note: Use full paths; partial paths will not work in this version.**
 
+You can edit the config file with the following command:
 ```console  
-./pimba_prepare.sh illumina <rawdata_dir> <output_reads> <num_threads> <adapters.txt> <min_length> <min_phred>
+vim ~/cursos/MetabarcodingITV2025/pimba_smk/config/config.yaml
+```
+#### General options for all modes
+
+| Parameter | Description |
+| ----------- | ----------- |
+| num_threads | The num_threads option indicates the maximum number of processors to be used for tasks that allow parallelization. |
+
+#### General options for the Prepare Mode
+If the user wishes to run the "prepare" mode to prepare the reads for the "run" mode, edit the following options:
+
+| Parameter | Description |
+| ----------- | ----------- |
+| minlength | The minimum length of a read after quality filtering. |
+| minphred | The minimum PHRED score for quality filtering. |
+| outputprepare | The name of the output file to be created in FASTA format. The ".fasta" extension is included automatically |
+
+#### Inputs to run paired-end reads
+If the user wishes to run PIMBA for paired-end reads, it is necessary to configure:
+
+| Parameter | Description |
+| ----------- | ----------- |
+| rawdatadir | The path to the directory where the reads are located |
+| adapters | The path to the adapter file within the resources directory |
+
+Once you have finished editing the `config.yaml` file with the file paths, you can now run the prepare module with the following command:
+```console  
+bash pimba_smk_main.sh -p paired_end -r no -g no -t 8 -c config/config.yaml
+```
+The "pimba_smk_main.sh" file is the main bash script that runs all the steps of the pipeline in Snakemake. This file takes the following parameters as input:
+
+- "-p": PIMBA preparation mode; choose between "paired_end", "single_index", "dual_index", or "no".
+- "-r": PIMBA execution mode; specify the name of the marker gene (and consequently the database) to be used, choosing from 16S-SILVA, 16S-GREENGENES, 16S-RDP, 16S-NCBI, ITS-FUNGI-NCBI, ITS-FUNGI-UNITE, ITS-PLANTS-NCBI, or COI-NCBI. For a custom database, include the path to the directory where the database is stored instead of the marker gene. To skip, indicate "no".
+- "-g": PIMBA plotting mode; choose between "yes" or "no".
+- "-t": number of processors.
+- "-c": the path to the config file.
+
+### WARNING ❗ :exclamation:
+Remember that you cannot run the command above directly in the terminal. For that, we will use a slurm file located in `/home/scripts/pimba_prepare.slurm`.
+Copy the `pimba_prepare.slurm` file to the folder you have created `~/cursos/MetabarcodingITV2025/pimba_smk/`.
+```console  
+cp /home/scripts/pimba_prepare.slurm ~/cursos/MetabarcodingITV2025/pimba_smk/
 ```
 
-`rawdata_dir` = path with all the R1 and R2 reads file;\
-`output_reads` = name for the output file;\
-`num_threads` = number of threads;\
-`adapters.txt` = tab separated 2-column file with all adapters and primers used for sequencing;\
-`min_lenght` = The minimum length of the read after quality treatment;\
-`min_phred` = Minimum PHRED score of a read after quality treatment.
-
-Example:
-
+Edit the slurm file and check if the command is correct
 ```console  
-  ./pimba_prepare.sh ilumina rawdata/ AllSamples 24 adapters.txt 100 20
+vim ~/cursos/MetabarcodingITV2025/pimba_smk/pimba_prepare.slurm
 ```
 
-When pimba_prepare finishes, it will create a FASTA file with the name of the parameter `output_reads` you have chosen. Let's assume it is called `AllSamples`.\
-This FASTA file gatheres all reads from all samples in a unique file (hence the name `AllSamples`).
+Once everything is correct, you can now submit your job to be processed:
+```console  
+sbatch ~/cursos/MetabarcodingITV2025/pimba_smk/pimba_prepare.slurm
+```
+
+When pimba_prepare finishes, it will create a FASTA file with the name of the parameter `outputprepare you have chosen. Let's assume it is called `AllSamples`.\
+This FASTA file gatherers all reads from all samples in a unique file (hence the name `AllSamples`).
 If you wish to know how many reads remained after quality treatment in this file, you can use the command bellow:
 
 ```console  
@@ -63,56 +102,3 @@ If you wish to know how many reads remained after quality treatment in this file
 
 Another created FASTA file ends with `withSingleton. This file contains the same reads that the other FASTA file, but also with the reads that have good quality, but were not paired.
 
-**single-end reads with dual-index:**
-
-In case your single-end reads have been multiplexed with dual-index, use the following command:
-
-```console  
-./pimba_prepare.sh iontorrent-dualindex  <rawdata.fastq> <barcodes.txt> <barcodes_reverse.txt> <barcodes.fasta> <barcodes_for_dir> <Primer_forward> <Primer_reverse> <num_threads> <output_name> <min_length> <min_phred>
-```
-
-`rawdata.fastq` = single file with all the reads to demultiplex;\
-`barcodes.txt` = barcodes used as index in the 3' of the fragment;\
-`barcodes_reverse.txt` = reverse complement of `barcodes.txt`;\
-`barcodes.fasta` = fasta file for the `barcodes.txt`;\
-`barcodes_for_dir` = path to all the barcodes.fasta and barcodes.txt used in the 5'  of the fragment. Each 3' barcode must have a fasta and txt file with all the associated 5' barcodes;\
-`Primer_forward` = sequence of the forward primer;\
-`Primer_reverse` = sequence of the reverse primer;\
-`num_threads` = number of threads;\
-`output_name` = name for the output fastq file;\
-`min_length` = The minimum length of the read after quality treatment;\
-`min_phred` = Minimum PHRED score of a read after quality treatment.
-
-Example:
-
-```console  
-./pimba_prepare.sh iontorrent-dualindex rawdata_chip-3-4.fastq barcodes.txt barcodes_reverse.txt barcodes.fasta barcode_for/ TCCACTAATCACAAAGANATNGGNAC AGAAAATCATAATNAANGCNTGNGC 24 AllSamplesCOI.fastq 100 20
-```
-
-**single-end reads with single-index:**
-
-In case your single-end reads have been multiplexed with single-index, use the following command:
-
-```console  
-./pimba_prepare.sh iontorrent-singleindex <rawdata.fastq> <prefix> <barcodes.txt> <barcodes.fasta> <primer> <num_threads> <output_name> <min_length> <min_phred>
-```
-
-`rawdata.fastq` = single file with all the reads to demultiplex;\
-`prefix` = name that will precede the barcodes names;\
-`barcodes.txt` = barcodes used as index in the 5' of the fragment;\
-`barcodes.fasta` = fasta file for the `barcodes.txt`;\
-`primer` = primer sequence;\
-`num_threads` = number of threads;\
-`output_name` = name for the output fastq file;\
-`min_lenght` = The minimum length of the read after quality treatment;\
-`min_phred` = Minimum PHRED score of a read after quality treatment.
-
-Example:
-
-```console  
-./pimba_prepare.sh iontorrent-singleindex SN1-45.fastq SN1-45-ITS barcodes.txt barcodes.fasta ATGCGATACTTGGTGTGAAT 24 AllSamples
-```
-
-**Questões para o relatório**
-
-1 - Escolha duas amostras específicas do seu dataset
