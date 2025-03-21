@@ -4,134 +4,132 @@ layout: archive
 permalink: /submitting_jobs/
 ---
 
-Para mantermos organizado o ambiente computacional que compartilhamos com todo o Instituto, utilizamos o sistema [Torque PBS](https://hpc-wiki.info/hpc/Torque) 
-Este sistema permite que todos os processos que precisam de recursos de processador e memória do cluster Superdome fiquem organizados em uma fila de processamento e de fácil monitoramento.
+Para mantermos organizado o ambiente computacional compartilhado, é utilizado o sistema [SLURM](https://slurm.schedmd.com/documentation.html) 
+Este sistema permite que todos os processos que precisam de recursos de processador e memória do servidor Biotec02 fiquem organizados em uma fila de processamento e de fácil monitoramento.
 
-### Arquivo PBS
-Todo comando que precise de recursos de processamento e memória não pode ser rodado diretamente do terminal. O comando precisa estar primeiramente dentro de um arquivo `.pbs`, cuja estrutura você pode verificar abaixo:
+### Arquivo SLURM
+Todo comando que precise de recursos de processamento e memória não pode ser rodado diretamente do terminal. O comando precisa estar primeiramente dentro de um arquivo `.slurm`, cuja estrutura você pode verificar abaixo:
 
 ```shell
-#PBS -l nodes=1:ppn=8
-#PBS -N jellyfish
-#PBS -o jellyfish.log
-#PBS -e jellyfish.err
+#!/bin/bash
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=8
+#SBATCH --time=1:00:00
+#SBATCH --mem=32gb
+#SBATCH --job-name=multiqc
+#SBATCH --output=multiqc.slurm.log
+#SBATCH --error=multiqc.slurm.err
 
-CORES=$[ `cat $PBS_NODEFILE | wc -l` ]
-NODES=$[ `uniq $PBS_NODEFILE | wc -l` ]
-
-printf "Inico: `date`\n";
+printf "Inicio: `date`\n";
 TBEGIN=`echo "print time();" | perl`
 
 printf "\n"
-printf "> Executando demultiplexacao\n";
-printf "> Rodando em $CORES nucleos, em $NODES nos\n"
-cd $PBS_O_WORKDIR
+printf "> Executando job_code7\n";
+printf "> Rodando em $SLURM_CPUS_PER_TASK nucleos, em $SLURM_NNODES nos\n"
 
 ##########INSIRA SEU COMANDO ABAIXO##########################
-jellyfish count -C -m 31 -s 1000 -t 1 -o drUrtUren1.jf drUrtUren1.600.fasta
+module load Bio/FastQC/0.12.1
+fastqc -t 8 SRR*
 #############################################################
 
 TEND=`echo "print time();" | perl`
 
-printf "\n"
+printf "\n"/
 printf "Fim: `date`\n";
 printf "Tempo decorrido (s): `expr $TEND - $TBEGIN`\n";
 printf "Tempo decorrido (min): `expr $(( ($TEND - $TBEGIN)/60 ))`\n";
+echo "TERMINADO"
 ```
 
 No exemplo acima, as primeiras linhas indicam os recursos que serão necessários para rodar o comando que você deseja executar.
-Por exemplo, o programa `jellyfish` será executado usando `8` threads. Isso é definido na linha abaixo:
+Por exemplo, o programa `fastqc` será executado usando `8` threads. Isso é definido na linha abaixo:
 ```shell
-#PBS -l nodes=1:ppn=8
+#SBATCH --cpus-per-task=8
+```
+
+Na linha abaixo é informado a quantidade de memória RAM que será reservada para rodar a ferramenta. É importante saber se a quantidade informada realmente é necessária.
+```shell
+#SBATCH --mem=32gb
 ```
 
 Nas três linhas seguintes, são definidos o nome do job, onde deverá ser salvo o log do comando e onde deverá ser salvo os erros dados no comando:
 ```shell
-#PBS -N jellyfish
-#PBS -o jellyfish.log
-#PBS -e jellyfish.err
+#SBATCH --job-name=multiqc
+#SBATCH --output=multiqc.slurm.log
+#SBATCH --error=multiqc.slurm.err
 ```
 
 Toda vez que você for rodar um comando, deverá alterar a linha abaixo (talvez você tenha percebido pela sutil descrição no arquivo):
 ```shell
-jellyfish count -C -m 31 -s 1000 -t 1 -o drUrtUren1.jf drUrtUren1.600.fasta
+module load Bio/FastQC/0.12.1
+fastqc -t 8 SRR*
 ```
 
 As outras linhas são apenas comandos de controle do job e não devem ser alteradas.
 
 
-### Editando o arquivo PBS
+### Editando o arquivo SLURM
 
-Para editar o arquivo `.pbs`, você pode usar o comando `vim`. Com esse comando, você consegue editar o conteúdo do arquivo. 
+Para editar o arquivo `.slurm`, você pode usar o comando `vim`. Com esse comando, você consegue editar o conteúdo do arquivo. 
 ```shell
-vim job_jellyfish.pbs
+vim multiqc.slurm
 ```
 
 Após executar o comando, você precisa apertar a tecla `i` (INSERT) pra poder editar o documento.
 Ao terminar de fazer as edições necessárias, você precisa apertar a tecla `ESC`, para sair do modo de edição.
 Em seguida, digite a tecla de dois pontos `:` e em seguida digite `wq!` para indicar que você deseja salvar o documento e sair da edição.
 
-Toda vez que você for rodar um comando dos softwares apresentados neste tutorial, você vai precisar submeter o job do comando para a fila de jobs do cluster Superdome com as instruções mostradas anteriormente.
+Toda vez que você for rodar um comando dos softwares apresentados neste tutorial, você vai precisar submeter o job do comando para a fila de jobs do cluster Biotec02 com as instruções mostradas anteriormente.
 
-### Submetendo o arquivo PBS para a fila de jobs
+### Submetendo o arquivo SLURM para a fila de jobs
 
-Após ter editado o arquivo `.pbs` com o comando que você deseja executar, você precisa submeter o job para uma fila de processamento.
-No total, o cluster Superdome apresenta um total de 768 núcleos, divididos em três filas:
+Após ter editado o arquivo `.slurm` com o comando que você deseja executar, você precisa submeter o job para uma fila de processamento.
 
-`op1`: com 462 cores disponíveis;
-`op2`: com 236 cores disponíveis;
-`testes`: com 70 cores disponíveis;
-
-Para submeter seu job para uma das filas acima, execute o comando `qsub` abaixo:
+Para submeter seu job, execute o comando `sbatch` abaixo:
 ```shell
-qsub -q <fila> <arquivo.pbs>
+sbatch <arquivo.slurm>
 ```
-
-Onde o parâmetro `-q` indica a fila à qual o `<arquivo.pbs>` deve ser submetido, por exemplo:
+Por exemplo:
 ```shell
-qsub -q op1 job_jellyfish.pbs
+sbatch multiqc.slurm
 ```
-
-Recomendamos que durante este curso você utilize a fila `op1`.
 
 ### Consultando a fila de jobs submetidos
 
-Caso você queira saber quais jobs estão sendo executados, quem está executando, quanto de recurso computacional está sendo utilizado e há quanto tempo o processo está sendoe executado, basta usar o comando `qstat`:
+Caso você queira saber quais jobs estão sendo executados, quem está executando, quanto de recurso computacional está sendo utilizado e há quanto tempo o processo está sendoe executado, basta usar o comando `squeue`:
 ```shell
-qstat -a
+squeue
 ```
 
 Ao executar o comando acima, você vai ser capaz de verificar a fila de jobs submetidos até o momento e que estão rodando ou em pausa, como demonnstrado abaixo:
 
 ```shell
-blmsvfhpc04.itv.local:
-                                                            Req'd  Req'd   Elap
-Job ID          Username Queue    Jobname    SessID NDS TSK Memory Time  S Time
---------------- -------- -------- ---------- ------ --- --- ------ ----- - -----
-5444.blmsvfhpc* c0403    op1      snpArcher* 21701*   1  32  300gb   --  R 354:3
-5606.blmsvfhpc* 81041448 op2      fst        35108*   1  20    --    --  R 214:5
-5646.blmsvfhpc* c0430    op2      construct  24737*   1  20    --    --  R 117:0
-5753.blmsvfhpc* c0403    op1      fastq2bam* 28126*   1  64    --    --  R 01:58
+           JOBID PARTIT NAME         USER     ST         TIME   TIME_LIMIT CPUS MIN_MEM NODELIST
+          745726 bigmem orthofinder  sandrade R   14-00:21:17  29-04:00:00   50    250G n01
+          745758 bigmem bash         hmontene R    6-22:42:59   7-12:00:00   32    330G n01
+          745755 long   panEDTA2     dmpachon R    7-05:56:15  30-00:00:00   30    200G n01
+          746059 long   EDTA-Tx      dmpachon R       5:55:43  30-00:00:00   30    200G n02
+
 ```
 
-No resultado do comando `qstat -a`, podemos ter as seguintes informações: 
+No resultado do comando `squeue`, podemos ter as seguintes informações: 
 
-`Job ID`: Identificador do job submetido. Esse identificador é importante caso queira deletar um job da fila; \
-`Username`: Matrícula do usuário que submeteu o job para a fila. Se você submeteu algum job, sua matrícula deve aparecer associada ao job submetido; \
-`Queue`: Fila onde o job está submetido; \
-`Jobname`: Nome do job que você configurou no arquivo `.pbs`; \
-`TSK`: Número de threads usadas no job submetido; \
-`Req'd Memory`: Quantidade de memória reservada para o job; \
-`S`: Status do job. Pode ser R (Running), E (error), H (hold) ou Q (queue); \
-`Elap time`: Há quanto tempo em minutos o job está sendo executado.
+`JOBID`: Identificador do job submetido. Esse identificador é importante caso queira deletar um job da fila; \
+`USER`: Usuário que submeteu o job para a fila. Se você submeteu algum job, seu ID deve aparecer associada ao job submetido; \
+`NAME`: Nome do job que você configurou no arquivo `.slurm`; \
+`CPUS`: Número de threads usadas no job submetido; \
+`MIN_MEM`: Quantidade de memória mínima reservada para o job; \
+`ST`: Status do job. Pode ser R (Running), E (error), H (hold) ou Q (queue); \
+`TIME`: Há quanto tempo o job está sendo executado.
 
 ###  Deletando um job específico
-A numeração presente na coluna `Job ID`pode ser usada para caso você deseje deletar um job da fila, com o comando `qdel`. Para tal, você pode rodar o seguinte comando:
+A numeração presente na coluna `JOBID`pode ser usada para caso você deseje deletar um job da fila, com o comando `scancel`. Para tal, você pode rodar o seguinte comando:
 ```shell
-qdel 5753
+scancel 746059
 ```
 
-Neste caso, o job de nome "fastq2bam" presente na fila de jobs seria deletado. Você só pode deletar um job que tenha sido submetido por você.
+Neste caso, o job de nome "EDTA-Tx" presente na fila de jobs seria deletado. Você só pode deletar um job que tenha sido submetido por você.
 
 
 
