@@ -67,12 +67,12 @@ Once you have finished editing the `config.yaml` file with the file paths, you c
 ```console  
 bash pimba_smk_main.sh -p paired_end -r no -g no -t 8 -c config/config.yaml
 ```
-The "pimba_smk_main.sh" file is the main bash script that runs all the steps of the pipeline in Snakemake. This file takes the following parameters as input:
+The "pimba_smk_main.sh" file is the main bash script that runs all the pipeline steps in Snakemake. This file takes the following parameters as input:
 
-- "-p": PIMBA preparation mode; choose between "paired_end", "single_index", "dual_index", or "no".
-- "-r": PIMBA execution mode; specify the name of the marker gene (and consequently the database) to be used, choosing from 16S-SILVA, 16S-GREENGENES, 16S-RDP, 16S-NCBI, ITS-FUNGI-NCBI, ITS-FUNGI-UNITE, ITS-PLANTS-NCBI, or COI-NCBI. For a custom database, include the path to the directory where the database is stored instead of the marker gene. To skip, indicate "no".
-- "-g": PIMBA plotting mode; choose between "yes" or "no".
-- "-t": number of processors.
+- "-p": PIMBA preparation mode; choose between "paired_end", "single_index", "dual_index", or "no";
+- "-r": PIMBA execution mode; specify the name of the marker gene (and consequently the database) to be used, choosing from 16S-SILVA, 16S-GREENGENES, 16S-RDP, 16S-NCBI, ITS-FUNGI-NCBI, ITS-FUNGI-UNITE, ITS-PLANTS-NCBI, or COI-NCBI. For a custom database, include the path to the directory where the database is stored instead of the marker gene. To skip, indicate "no";
+- "-g": PIMBA plotting mode; choose between "yes" or "no";
+- "-t": number of processors;
 - "-c": the path to the config file.
 
 ### WARNING ❗ :exclamation:
@@ -92,13 +92,13 @@ Once everything is correct, you can now submit your job to be processed:
 sbatch ~/cursos/MetabarcodingITV2025/pimba_smk/pimba_prepare.slurm
 ```
 
-When pimba_prepare finishes, it will create a FASTA file with the name of the parameter `outputprepare you have chosen. Let's assume it is called `AllSamples`.\
+When pimba_prepare finishes, it will create a FASTA file with the name of the parameter `outputprepare` you have chosen. Let's assume it is called `AllSamples`.\
 This FASTA file gatherers all reads from all samples in a unique file (hence the name `AllSamples`).
-If you wish to know how many reads remained after quality treatment in this file, you can use the command bellow:
+If you wish to know how many reads remained after quality treatment in this file, you can use the command below:
 
 ```console  
   grep -c ">" AllSamples.fasta
 ```
 
-Another created FASTA file ends with `withSingleton. This file contains the same reads that the other FASTA file, but also with the reads that have good quality, but were not paired.
+Another created FASTA file ends with `withSingleton`. ' This file contains the same reads as the other FASTA file but also has good-quality reads that were not paired.
 
