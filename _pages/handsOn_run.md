@@ -25,22 +25,28 @@ You must configure the inputs for the "run" mode according to the parameters bel
 
 
 #### Database paths
-Depending on the database used, provide the full path to the files related to that database. Snakemake will only use the path specified in the "marker_gene" option from the previous item, so only the specified marker gene needs to be configured.
+Depending on the database used, provide the full path to the files related to that database in the `pimba_smk/config/config.yaml`. Snakemake will only use the path specified in the "marker_gene" option from the previous item, so only the specified marker gene needs to be configured.
 
 If you have chosen the COI dataset, just set the `marker_gene` variable in the config file to `COI-BOLD` and set the `COI-BOLD-DB` variable to `/home/program2/db/PIMBA_smk/3/COI_BOLD/`.
 If you have chosen the ITS dataset, just set the `marker_gene` variable in the config file to `/home/program2/db/PIMBA_smk/3/ITS_plants/`.
 
-
-Here is an example of a command:
+After everything is correctly set in the `config.yaml` file, you will use the command below to run PIMBA_run mode, assuming you are analyzing the COI dataset:
 
 ```console
-./pimba_run.sh -i AllSamples.fasta -o AllSamplesCOI_98clust90assign -w otu -s 0.98 -a 0.9 -c 0.9 -l 200 -h 1 -g /path/to/your/database/ -t 24 -e 0.1 -d databases.txt
+./pimba_smk_main.sh -p no -r COI-BOLD -g no -t $SLURM_CPUS_PER_TASK -c config/config.yaml
 ```
 
-If you are analyzing an ITS dataset, use the command bellow, just adding the `-m its` parameter:
+If you are analyzing the ITS dataset, the command will be:
 ```console
-./pimba_run.sh -i AllSamples.fasta -o AllSamplesCOI_98clust90assign -w otu -s 0.98 -a 0.9 -c 0.9 -l 200 -h 1 -g /path/to/your/database/ -t 24 -e 0.1 -d databases.txt -m its
+./pimba_smk_main.sh -p no -r /home/program2/db/PIMBA_smk/3/ITS_plants/ -g no -t $SLURM_CPUS_PER_TASK -c config/config.yaml
 ```
 
+But remember! You cannot run the commands above directly in the terminal. For that, copy the file `/home/scripts/pimba_run.slurm` to your folder. Open the file after you have pasted to your work directory to see if everything is correctly set. Then, submit the job to the processing queue:
+
+```console
+sbatch pimba_run.slurm
+```
+
+The taxonomy assignment will be generated at the `results/01_run/output/AllSamples_otus_tax_assignments.txt`
  
   
