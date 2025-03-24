@@ -58,5 +58,34 @@ To see the files in the folder you have downloaded, type the following command:
 ls
 ```
 
+### Reccomendation ❗
+You can create sessions to "save" the status of your work across the different days of this course. For that, just type the following command in your terminal:
+```console
+screen -S <name_your_session>
+```
+
+e.g.: 
+```console
+screen -S curso_metabar
+```
+
+Once you do that, and run the PIMBA commands in this session, you can detach this session, without ending it, just holding the following keys:
+CTRL+A+D
+
+Once you close your terminal, you can return (attach) to the session with the command:
+```console
+screen -r curso_metabar
+```
+
+To end a session permanently, just hold the following keys:
+CTRL+D
+
+You can create different sessions. To list all of them, just type:
+```console
+screen -ls
+```
+
+
+
 And that's all! Now you can run PIMBA on your data!
 
