@@ -55,10 +55,10 @@ pages:
       - title: "Part 4 - Diversity metrics and plots with PIMBA_plot"
         url: /handsOn_plot/
 
-  - title: "Relatório"
-    children:
-      - title: "Datasets e questões para o relatório"
-        url: /report_datasets/
+  #- title: "Relatório"
+  #  children:
+  #    - title: "Datasets e questões para o relatório"
+  #      url: /report_datasets/
 
   - title: "References"
     children:
