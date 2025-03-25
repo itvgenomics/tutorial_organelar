@@ -41,7 +41,7 @@ If you are analyzing the ITS dataset, the command will be:
 ./pimba_smk_main.sh -p no -r /home/program2/db/PIMBA_smk/3/ITS_plants/ -g no -t $SLURM_CPUS_PER_TASK -c config/config.yaml
 ```
 
-But remember! You cannot run the commands above directly in the terminal. For that, copy the file `/home/scripts/pimba_run.slurm` to your folder. Open the file after you have pasted to your work directory to see if everything is correctly set. Then, submit the job to the processing queue:
+But remember! You cannot run the commands above directly in the terminal. Copy the file `/home/program2/src/PIMBA_smk/scripts/pimba_run.slurm` to your folder. Open the file after you have pasted it to your work directory to see if everything is correctly set. Then, submit the job to the processing queue:
 
 ```console
 sbatch pimba_run.slurm
