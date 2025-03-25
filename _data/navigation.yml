@@ -37,6 +37,8 @@ pages:
       #  url: /linuxmac_users/
       - title: "- Accessing the server"
         url: /access_server/
+      - title: "- Transferring files with Filezilla"
+        url: /filezilla/
       - title: "- Downloading databases" 
         url: /download_databases/
       - title: "- Downloading datasets" 
