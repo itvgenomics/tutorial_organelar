@@ -1,32 +1,21 @@
 ---
-title: "Instalando o FastQC"
+title: "Instalando o Filezilla"
 layout: archive
-permalink: /installing_fastqc/
+permalink: /filezilla/
 ---  
 
-### Instalando o FastQC
+### Instalando o Filezilla
 
-O [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) é um software que permite visualizar a qualidade das bases de uma amostra sequenciada. 
-Além disso, também permite verificar algumas outras métricas de qualidade do sequenciamento, como presença de contaminantes, sequências artefatos, frequência de nucleotídeos, etc.
+O [Filezilla](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) é um software que permite realizar transferência de arquivos entre o seu computador local e um servidor externo. Ele facilita quando a troca de arquivos é intensa em alguma atividade de análise, principalmente ao se verificar os resultados gerados.
 
-![](/tutorial_metabarcoding/images/fastqc.png)
+![](/tutorial_metabarcoding/images/filezilla.png)
 
+Você consegue fazer o download da ferramenta [aqui](https://filezilla-project.org/download.php?type=client). Baixe de acordo com o sistema operacional que você estiver utilizando.
 
-Se você utiliza Ubuntu ou o WSL2 no Windows, abra um terminal e digite o seguinte comando:
+Na figura abaixo você pode ver alguns detalhes importantes para acessar um servidor com o filezilla, como o endereço do servidor (host), nome de usuário, senha e porta de acesso.
 
-```console
-sudo apt-get install fastqc
-```
+![](/tutorial_metabarcoding/images/filezilla_access.png)
 
-Se você utiliza Mac, abra um terminal e digite o seguinte comando:
+Na figura abaixo, você pode visualizar as diferentes áreas presentes na ferramenta, onde é possível realizar o envio e recebimento de arquivos entre um computador local e um remoto, apenas arrastando os arquivos entre as diferentes áreas
 
-```console
-brew install fastqc
-```
-
-Após instalado, para rodar o FastQC em um arquivo Fastq, rode o seguinte comando:
-
-```console
-fastqc [arquivo.fastq]
-```
-Substituta o termo `arquivo.fastq` pelo caminho até o arquivo que você deseja analisar.
+![](/tutorial_metabarcoding/images/local_remote.png)
