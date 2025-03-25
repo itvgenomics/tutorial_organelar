@@ -24,7 +24,7 @@ fastqc *.fastq
 FastQC generated the HTML files that will allow you to see the base quality of your data.
 You can combine all quality reports into a single file with MultiQC.
 ### WARNING ❗ :exclamation:
-As explained, you can't run this command directly from the terminal. Therefore, copy the file `multiqc.slurm` that is in the directory `/home/scripts/multiqc.slurm` to the folder where you are going to run fastqc.
+As explained, you can't run this command directly from the terminal. Therefore, copy the file `multiqc.slurm` that is in the directory `/home/program2/src/PIMBA_smk/scripts/multiqc.slurm` to the folder where you are going to run fastqc.
 
 Open the `multiqc.slurm` file, check if everything is correct, and submit the job to the processing queue, as explained [here](https://itvgenomics.github.io/tutorial_metabarcoding_v3/submitting_jobs/)
 
@@ -76,7 +76,7 @@ The "pimba_smk_main.sh" file is the main bash script that runs all the pipeline 
 - "-c": the path to the config file.
 
 ### WARNING ❗ :exclamation:
-Remember that you cannot run the command above directly in the terminal. For that, we will use a slurm file located in `/home/scripts/pimba_prepare.slurm`.
+Remember that you cannot run the command above directly in the terminal. For that, we will use a slurm file located in `/home/program2/src/PIMBA_smk/scripts/pimba_prepare.slurm`.
 Copy the `pimba_prepare.slurm` file to the folder you have created `~/cursos/MetabarcodingITV2025/pimba_smk/`.
 ```console  
 cp /home/scripts/pimba_prepare.slurm ~/cursos/MetabarcodingITV2025/pimba_smk/
