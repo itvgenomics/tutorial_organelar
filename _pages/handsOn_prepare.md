@@ -36,6 +36,11 @@ The first step in running PIMBA is to prepare your data. PIMBA can be used with 
 
 The config.yaml file (~/cursos/MetabarcodingITV2025/pimba_smk/config/config.yaml) is the general configuration file. It should contain parameters such as the maximum number of processors, adapter sequences, input file paths, etc. Open the file in a text editor and make the following modifications. **Note: Use full paths; partial paths will not work in this version.**
 
+To obtain the full path of a file or directory/folder, use the command below:
+```console  
+realpath <nome_do_arquivo_ou_pasta>
+```
+
 You can edit the config file with the following command:
 ```console  
 vim ~/cursos/MetabarcodingITV2025/pimba_smk/config/config.yaml
