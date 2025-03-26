@@ -1,5 +1,5 @@
 ---
-title: "Part 4 - Diversity metrics and plots with PIMBA_plot
+title: "Part 4 - Diversity metrics and plots with PIMBA_plot"
 layout: archive
 permalink: /handsOn_plot/
 ---
