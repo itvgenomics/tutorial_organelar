@@ -28,6 +28,17 @@ As explained, you can't run this command directly from the terminal. Therefore, 
 
 Open the `multiqc.slurm` file, check if everything is correct, and submit the job to the processing queue, as explained [here](https://itvgenomics.github.io/tutorial_metabarcoding_v3/submitting_jobs/)
 
+After running MultiQC, many files will be generated into your rawdata folder. PIMBA does not like that.
+Assuming you are in the rawdata folder, create a folder called `fastq` with the command below:
+```console  
+mkdir fastq
+```
+
+Move all your fastq files into the `fastq` folder:
+```console  
+mv *.fastq fastq/
+```
+
 Now let's PIMBA!
 
 The first step in running PIMBA is to prepare your data. PIMBA can be used with paired-end or single-end reads (the latter being single-index or dual-index). The output will be a Fasta file that can be used in the next step. In this tutorial, we will use only paired-end reads, but you can check how to prepare single-end reads with dual and single-indexes [here](https://github.com/itvgenomics/pimba_smk/blob/main/README.md#a-configure-the-configyaml-file).
