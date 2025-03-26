@@ -21,7 +21,7 @@ Example of Metadata file (metadata.csv):
 
 ![](https://github.com/reinator/pimba/blob/main/Figures/metadata_example.png?raw=true)
   
- The first column must always be “SampleID” and the second column must always be “SampleName”
+ The first column must always be "SampleID" and the second column must always be "SampleName"
 
  To run PIMBA plot, you will need to configure the following variables in the `pimba_smk/config/config.yaml` file:
 
