@@ -48,5 +48,24 @@ sbatch pimba_run.slurm
 ```
 
 The taxonomy assignment will be generated at the `results/01_run/output/AllSamples_otus_tax_assignments.txt`
- 
+
+### Configure your personalized database
+Suppose you want to use a personalized database. In that case, you will only need a fasta file with the reference sequences and their identification, and a two-column tax.txt file with the sequence ID and the full taxonomy written for every reference sequence in the fasta file. Put them in the same directory, e.g.: /path/to/your/database/.
+Example of FASTA file:
+
+![](https://github.com/reinator/pimba/blob/main/Figures/fasta_example.png?raw=true)
+
+Example of Taxonomy file:
+
+![](https://github.com/reinator/pimba/blob/main/Figures/tax_example.png?raw=true)
+
+Then, install blastn on your computer and run makeblastdb in your fasta file:
+~~~
+sudo apt-get install ncbi-blast+
+makeblastdb -in <your_fasta.fasta> -dbtype nucl -parse_seqids
+~~~
+After that, all you need is to set the /path/to/your/database/ in the -r parameter when running PIMBA run and also set this path in the config.yaml file. Example:
+~~~
+./pimba_smk_main.sh -p no -r /path/to/your/database/ -g no -t $SLURM_CPUS_PER_TASK -c config/config.yaml
+~~~
   
