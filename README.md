@@ -12,8 +12,105 @@ O **terminal** é uma interface de linha de comando usada para interagir com o s
 | `cd <dir>`      | Entra em um diretório                       |
 | `mkdir <dir>`   | Cria um novo diretório                      |
 | `cp`            | Copia arquivos ou diretórios                |
+| `pwd`           | Printa no terminal o ambiente de trabalho atual |
 | `cat <arquivo>` | Mostra o conteúdo de um arquivo no terminal |
 | `vim <arquivo>` | Abre um editor de texto no terminal         |
+
+### O que é o terminal?
+
+O **terminal** é uma interface de linha de comando usada para interagir com o sistema operacional via texto. Ele permite executar programas, navegar entre diretórios, manipular arquivos e muito mais.
+
+### O prompt
+
+Ao abrir o terminal, você verá uma linha parecida com:
+
+```bash
+<usuario>@azusdsgenvm003 ~:~$ 
+```
+
+Essa linha é chamada de **prompt**, e indica que o terminal está pronto para receber comandos.
+
+### Executando comandos
+
+Um comando geralmente tem esta estrutura:
+
+```bash
+comando [opções] [argumentos]
+```
+
+* **Comando:** o que você quer fazer (ex: `ls` para listar arquivos)
+* **Opções:** modificam o comportamento do comando (ex: `-l` para exibir detalhes)
+* **Argumentos:** informações que o comando vai usar (ex: caminho de um diretório)
+
+Exemplo:
+
+```bash
+ls -lh /aula
+```
+
+Esse comando lista o conteúdo do diretório `/aula`, com informações detalhadas e tamanhos em formato legível.
+
+### Onde estou? (pwd)
+
+Use o comando `pwd` para ver o diretório atual:
+
+```bash
+pwd
+```
+
+### Criando diretórios (mkdir)
+
+Você pode criar um novo diretório com:
+
+```bash
+mkdir novo_diretorio
+```
+
+Ou criar um subdiretório dentro de outro:
+
+```bash
+mkdir pasta1/subpasta
+```
+
+### Listando arquivos (ls)
+
+Para ver o conteúdo de um diretório:
+
+```bash
+ls
+```
+
+Use opções como `-l` (detalhes) e `-h` (formato legível):
+
+```bash
+ls -lh pasta
+```
+
+### Navegando com cd
+
+O comando `cd` permite trocar de diretório:
+
+```bash
+cd nome_da_pasta
+```
+
+Você pode usar **caminhos relativos** (baseados no diretório atual) ou **caminhos absolutos** (começam com `/`).
+
+Exemplo de caminho relativo:
+
+```bash
+cd linux_tutorial
+```
+
+Exemplo de caminho absoluto:
+
+```bash
+cd /home/username/linux_tutorial
+```
+
+### Dica: Tab para autocompletar
+
+Você pode usar a tecla **Tab** para completar automaticamente nomes de arquivos ou diretórios enquanto digita no terminal. Isso economiza tempo e evita erros.
 
 ---
 
