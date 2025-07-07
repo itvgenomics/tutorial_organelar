@@ -16,13 +16,13 @@ minimal_mistakes_skin    : "contrast" # "air", "aqua", "contrast", "dark", "dirt
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Tutorial de metabarcoding"
+title                    : "Tutorial de Bioinformática para Genômica Organelar"
 title_separator          : "|"
 name                     : "Gisele Nunes e Renato Oliveira"
-description              : "Tutorial de metabarcoding, Março de 2025"
+description              : "Tutorial de organelar, Julho de 2025"
 url                      : #https://gbb_montagem_workshop.github.io
 baseurl                  : # the subpath of your site, e.g. "/blog"
-repository               : itvgenomics/tutorial_metabarcoding_v3
+repository               : itvgenomics/tutorial_organelar
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 breadcrumbs              : true # true, false (default)
 words_per_minute         : 200
