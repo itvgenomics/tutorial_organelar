@@ -3,10 +3,10 @@ layout: archive
 permalink: /
 ---
 <p align="center">
-<img src="images/banner.png" width="200" height="80">
+<img src="images/banner.png">
 </p>
 
-Bem-vindo(a) ao Tutorial de análises de metabarcoding.
+Bem-vindo(a) ao Tutorial de análises para genômica organelar.
 O curso será ministrada pela Dra. Gisele Nunes e pelo Dr. Renato Oliveira.
 
 Acesse os links no painel à esquerda para acessar os módulos da disciplina.
