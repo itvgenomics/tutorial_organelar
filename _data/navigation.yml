@@ -45,6 +45,8 @@ pages:
         url: /download_datasets/
       - title: "- Installing FastQC" 
         url: /installing_fastqc/
+      - title: "- Installing Artemis" 
+        url: /installing_artemis/
         
   - title: "Hands On"
     children:
