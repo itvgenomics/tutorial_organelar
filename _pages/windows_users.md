@@ -47,7 +47,7 @@ Na primeira vez que você iniciar uma distribuição do Linux recém-instalada, 
 Agora, você precisará criar uma conta de usuário e uma senha para sua nova distribuição do Linux.
 
 Apenas siga os passos solicitados:
-https://miro.medium.com/v2/resize:fit:1100/format:webp/0*qHOWa2UoONeoyI0r.png
+![]([/tutorial_metabarcoding/images/fastqc.png](https://miro.medium.com/v2/resize:fit:1100/format:webp/0*qHOWa2UoONeoyI0r.png))
 
 
 Tudo finalizado!!!
