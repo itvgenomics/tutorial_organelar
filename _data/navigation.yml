@@ -27,7 +27,7 @@ pages:
       - title: "- Other things you should know"  
         url: /linux_other_things/
       - title: "- Fasta and Fastq sequences"
-        url: /fasta_fastq/  
+        url: /fasta_fastq/
   
   - title: "Setting up the environment"
     children:
@@ -47,6 +47,8 @@ pages:
         url: /installing_fastqc/
       - title: "- Installing Artemis" 
         url: /installing_artemis/
+      - title: "- Installing WSL2" 
+        url: /windows_users/
         
   - title: "Hands On"
     children:
