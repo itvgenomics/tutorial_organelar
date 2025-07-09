@@ -172,7 +172,7 @@ Ative o ambiente necessário para usar o OrganPipe:
 source /opt/anaconda3/etc/profile.d/conda.sh
 ```
 ```bash
-conda activate organpipe
+conda activate /home/c0363_ds_usr/.conda/envs/organpipe
 ```
 
 ---
