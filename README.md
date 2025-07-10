@@ -162,6 +162,51 @@ cd brunoms          # Entra na sua pasta de trabalho
 
 ---
 
+### `screen`: Gerenciamento de sessões no terminal
+
+| Comando                  | Função                                                                  |
+| ------------------------ | ----------------------------------------------------------------------- |
+| `screen`                 | Inicia uma nova sessão interativa                                       |
+| `screen -S nome`       | Inicia uma nova sessão com um nome personalizado                        |
+| `screen -ls`             | Lista todas as sessões existentes (ativas ou em segundo plano)          |
+| `screen -r nome` | Reanexa (reativa) uma sessão **detached**                               |
+| `screen -d nome`         | Força o **detach** de uma sessão ativa (a deixa em segundo plano)       |
+| `screen -d -r nome`      | Faz o detach de uma sessão ativa e imediatamente a reanexa (reativa)    |
+| `Ctrl + A` depois `D`    | Atalho dentro do `screen` para **detachar** (voltar ao terminal normal) |
+
+---
+
+Conceitos importantes:
+
+* **Attached:** quando você está conectado e interagindo com a sessão `screen`.
+* **Detached:** a sessão continua rodando em segundo plano, mas você não está mais conectado a ela.
+* Isso permite que comandos longos ou pipelines continuem rodando mesmo que a conexão SSH caia.
+
+#### Exemplo prático:
+
+```bash
+screen -S brunoms
+```
+
+(Inicia uma sessão chamada `brunoms`)
+
+Pressione `Ctrl+A` e depois `D`
+(Para sair da sessão sem encerrá-la)
+
+```bash
+screen -ls
+```
+
+(Lista todas as sessões)
+
+```bash
+screen -r brunoms
+```
+
+(Reconecta à sessão)
+
+---
+
 ## Ativando o Ambiente Conda
 
 O **Conda** é um gerenciador de ambientes que facilita o uso de ferramentas bioinformáticas.
@@ -182,29 +227,55 @@ conda activate /home/c0363_ds_usr/.conda/envs/organpipe
 Utilizaremos o `fasterq-dump` para baixar os dados do NCBI a partir de um ID SRA. Substitua `<ID>` pelo identificador desejado.
 
 ```bash
-fasterq-dump <ID> -p --split-files -O sra_output && gzip sra_output/*
+fasterq-dump <ID> -p --split-files -O sra_output
 ```
 
 > Exemplo:
-> `fasterq-dump SRR12345678 -p --split-files -O sra_output && gzip sra_output/*`
+> `fasterq-dump SRR12345678 -p --split-files -O sra_output 
 
 Esse comando irá:
 
-* Baixar os arquivos `.fastq`;
+* Baixar os arquivos `.fastq` dentro da pasta sra_output. Você pode mudar o nome desta pasta caso deseje os arquivos em outro lugar;
 * Dividir em pares de leitura (se for paired-end);
-* Compactar os arquivos com gzip.
+
+Como o download será feito no formato `fastq`, nos temos que compactar estes arquivos. Utilize os seguintes comandos:
+
+```bash
+gzip sra_output/*.fastq
+```
+
+Lembrando que:
+
+* Os arquivos foram baixados na pasta sra_output. Caso tenha mudado este nome no passo anterior, substitua pelo nome que você utilizou;
+* O comando *.fastq indica todos os arquivos que terminam com fastq serão compactados.
+
+Após a compactação, troque os sufixos **_1.fastq.gz** para **_R1.fastq.gz** e **_2.fastq.gz** para **_R2.fastq.gz**. Isso irá garantir que o organpipe consiga reconhcer estes arquivos:
+
+```bash
+rename "_1.fastq.gz" "_R1.fastq.gz" sra_output/*
+```
+
+```bash
+rename "_2.fastq.gz" "_R2.fastq.gz" sra_output/*
+```
 
 ---
 
 ## Análise de Qualidade com FastQC
 
-Execute o FastQC em todos os arquivos `.fastq.gz`:
+Para poder rodar a análise de qualidade, crie primeiro a pasta aonde os arquivos serão salvos:
+
+```bash
+mkdir fastqc_output
+```
+
+Em seguida, execute o FastQC em todos os arquivos `.fastq.gz`:
 
 ```bash
 fastqc sra_output/*.fastq.gz -o fastqc_output
 ```
 
-> Isso irá criar um diretório `fastqc_output` com relatórios `.html` e `.zip` de qualidade.
+> Isso irá criar um diretório `fastqc_output` com relatórios `.html` e `.zip` de qualidade. Cuidado com o nome da pasta `sra_output`.
 
 Faça o download dos arquivos .html para o seu computador para poder visualizar os resultados.
 
