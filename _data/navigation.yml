@@ -35,16 +35,16 @@ pages:
       #  url: /windows_users/ 
       #- title: "- For Linux and Mac Users" 
       #  url: /linuxmac_users/
-      - title: "- Accessing the server"
-        url: /access_server/
+      #- title: "- Accessing the server"
+      #  url: /access_server/
       - title: "- Transferring files with Filezilla"
         url: /filezilla/
-      - title: "- Downloading databases" 
-        url: /download_databases/
-      - title: "- Downloading datasets" 
-        url: /download_datasets/
-      - title: "- Installing FastQC" 
-        url: /installing_fastqc/
+      #- title: "- Downloading databases" 
+      #  url: /download_databases/
+      #- title: "- Downloading datasets" 
+      #  url: /download_datasets/
+      #- title: "- Installing FastQC" 
+      #  url: /installing_fastqc/
       - title: "- Installing Artemis" 
         url: /installing_artemis/
       - title: "- Installing WSL2" 
@@ -52,14 +52,16 @@ pages:
         
   - title: "Hands On"
     children:
-      - title: "Part 1 - Introduction to the Pipeline for Metabarcoding Analysis (PIMBA)"
-        url: /handsOn_pimba/
-      - title: "Part 2 - Quality treatment with PIMBA_prepare"
-        url: /handsOn_prepare/        
-      - title: "Part 3 - Taxonomy assignment with PIMBA_run"
-        url: /handsOn_run/
-      - title: "Part 4 - Diversity metrics and plots with PIMBA_plot"
-        url: /handsOn_plot/
+      - title: "Organelles curation with Artemis"
+        url: /handsOn_artemis/
+      #- title: "Part 1 - Introduction to the Pipeline for Metabarcoding Analysis (PIMBA)"
+      #  url: /handsOn_pimba/
+      #- title: "Part 2 - Quality treatment with PIMBA_prepare"
+      #  url: /handsOn_prepare/        
+      #- title: "Part 3 - Taxonomy assignment with PIMBA_run"
+      #  url: /handsOn_run/
+      #- title: "Part 4 - Diversity metrics and plots with PIMBA_plot"
+      #  url: /handsOn_plot/
 
   #- title: "Relatório"
   #  children:
