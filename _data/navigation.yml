@@ -54,6 +54,8 @@ pages:
     children:
       - title: "Organelles curation with Artemis"
         url: /handsOn_artemis/
+      - title: "Phylogenomics with SPLACE"
+        url: /handsOn_splace/
       #- title: "Part 1 - Introduction to the Pipeline for Metabarcoding Analysis (PIMBA)"
       #  url: /handsOn_pimba/
       #- title: "Part 2 - Quality treatment with PIMBA_prepare"
