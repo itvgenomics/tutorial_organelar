@@ -281,6 +281,29 @@ Faça o download dos arquivos .html para o seu computador para poder visualizar 
 
 ---
 
+## Trimmando as Reads Brutas
+
+Para poder fazer o controle de qualidade das reads, utilize o `fastp`. Primeiramente crie a pasta de output:
+
+```bash
+mkdir fastp_output
+```
+
+Rode agora o Fastp:
+
+```bash
+fastp --in1 sra_output/<ID>_R1.fastq.gz --in2 sra_output/<ID>_R2.fastq.gz --detect_adapter_for_pe --length_required 35 --cut_mean_quality 24 --thread 4 --html fastp_output/<ID>.html --json fastp_output/<ID>.json --out1 fastp_output/<ID>_R1.fastq.gz --out2 fastp_output/<ID>_R2.fastq.gz
+```
+
+> Lembre de substituir o <ID> pelo código do SRR que voce utilizou para fazer o download das reads: Exemplo: fastp --in1 SRR28617126_R1.fastq.gz --in2 SRR28617126_R2.fastq.gz --detect_adapter_for_pe --length_required 35 --cut_mean_quality 24 --thread 4 --html fastp_output/SRR28617126.html --json fastp_output/SRR28617126.json --out1 fastp_output/SRR28617126_R1.fastq.gz --out2 fastp_output/SRR28617126_R2.fastq.gz
+
+* O Programa irá identificar automaticamente os adaptadores com a flag --detect_adapter_for_pe;
+* Irá gerar também relatorios da trimmagem, no arquivo .html. Você pode baixar esse arquivo pro seu computador;
+* Altere o tamanho mínimo das reads na flag --length_required. Exemplo: --length_required 75;
+* Altera a qualided mínima na flag --cut_mean_quality. Exemplo: --cut_mean_quality 10.
+
+---
+
 ## Editando o Arquivo de Configuração
 
 O OrganPipe requer um arquivo `config.yaml` para definir as opções do pipeline.
