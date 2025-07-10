@@ -68,8 +68,8 @@ pages:
   #    - title: "Datasets e questões para o relatório"
   #      url: /report_datasets/
 
-  - title: "References"
-    children:
-      - title: "Papers"
-        url: /further_reading/     
+  #- title: "References"
+  #  children:
+  #    - title: "Papers"
+  #      url: /further_reading/     
    
