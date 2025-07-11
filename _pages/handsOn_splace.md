@@ -15,7 +15,7 @@ O SPLACE irá automatizar três principais etapas:
 2 - Alinhar cada arquivo FASTA separadamente;\
 3 - Concatenar os genes alinhados oriundos de um mesmo organismo;
 
-![](https://github.com/reinator/splace/blob/main/workflow2.png)
+![](/tutorial_metabarcoding/images/splace.png)
 
 Example of OTU Tax assignment (tax_assignment.txt):
 
