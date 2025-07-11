@@ -342,3 +342,10 @@ Execute o pipeline com o seguinte comando:
 bash OrganPipe.sh -d . -c config.yaml -t 4 -sifdir /aula/sifdir -np
 ```
 
+Caso você tenha realizado alguma modificação no seu arquivo de configuração, e deseje rodar esse novo config para a mesma amostra, utilize a flag -rerun:
+
+```bash
+bash OrganPipe.sh -d . -c config.yaml -t 4 -sifdir /aula/sifdir -rerun
+
+>Caso dê algum erro, copie novamente os arquivos do organpipe: cp -r /aula/organpipe/* .
+```
