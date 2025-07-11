@@ -12,46 +12,61 @@ O código do SPLACE está disponível na página do Github (https://github.com/r
 O SPLACE irá automatizar três principais etapas:
 
 1 - Separar os mesmos genes de diferentes organismos em diferentes arquivos FASTA;\
-2 - Alinhar cada arquivo FASTA separadamente;\
+2 - Alinhar cada arquivo FASTA separadamente com o MAFFT;\
 3 - Concatenar os genes alinhados oriundos de um mesmo organismo;
 
-![](/tutorial_metabarcoding/images/splace.png)
+![](/tutorial_organelar/images/splace.png)
 
-Example of OTU Tax assignment (tax_assignment.txt):
+❗ Tudo que estiver entre <> você deve trocar por seus valores ❗
 
-![](https://github.com/reinator/pimba/blob/main/Figures/taxresult_example.png?raw=true)
+Primeiro entre no ambiente que estamos utilizando para a aula:
+```console
+ssh <seu_usuario>@172.173.153.176
+```
+Após entrar no ambiente, vá para a sua pasta dentro do diretório alunos:
+```console
+cd /aula/alunos/<sua_pasta>
+```
 
-Example of Metadata file (metadata.csv):
+Crie uma pasta chamada "teste_splace":
+```console
+mkdir teste_splace
+```
 
-![](https://github.com/reinator/pimba/blob/main/Figures/metadata_example.png?raw=true)
-  
- The first column must always be "SampleID" and the second column must always be "SampleName"
+Entre na pasta criada:
+```console
+cd teste_splace
+```
 
- To run PIMBA plot, you will need to configure the following variables in the `pimba_smk/config/config.yaml` file:
+Agora vamos copiar os arquivos de exemplo que iremos utilizar na aula. Separamos os genes de cloroplasto de 10 espécies de plantas da família Araceae.
+Rode o comando abaixo para copiar os arquivos para a sua pasta criada:
+```console
+cp -r /aula/splace_exemplos/gb .
+```
+❗ Não esqueça do ponto (.) no comando acima.
 
+Copie também alguns arquivos .txt que estão presentes na pasta: 
+```console
+cp /aula/splace_exemplos/*.txt .
+```
+Agora você já tem todos os arquivos necessários para rodar o SPLACE. 
+O comando e os parâmetros necessários para rodar o SPLACE podem ser vistos abaixo:
+
+```shell
+/aula/splace/splace_v3.sh -l <files directory> -t <num_threads> -o <output_name> -g <genes_list> -s <separator> -y <format_files> -f <feature>
+```
 | Parameter | Description |
 | ----------- | ----------- |
-| metadata | The path to the metadata file |
-| group_by | Set "group_by" with the metadata parameter to group the samples (use "False" for not grouping the samples) |
+| -l <files directory> | Diretório com os arquivos FASTA ou GENBANK a serem incluídos na análise |
+| -t <num_threads> | Número de threads a serem usadas na etapa de alinhamento. Default é 1 thread |
+| -o <output_name> | Nome do arquivo a ser gerado contendo o resultado |
+| -g <genes_list> | Se você fornecer uma lista com o nome dos genes a serem incluídos na análise, qualquer organimo que não possuir certo gene terá a informação de gene faltante ('?') na supermatriz gerada. Se não for fornecida uma lista de genes, a análise é feita apenas com os genes compartilhados; |
+| -s <separator> |Símbolo do separador usado para distinguir o nome do gene e qualquer outra informação nos arquivos FASTA dos organismos. |
+| -y <format_files> | Formato dos arquivos presente no diretório a ser analisada. Pode ser "fasta" ou "gb", sem aspas. |
+| -f <feature> | Se estiver utilizando "-y gb", defina se quer incluir "CDS", "tRNA" ou "rRNA" (sem aspas) |
 
-Then, you can run the following command:
-```console
-./pimba_smk_main.sh -p no -r no -g yes -t 8 -c config/config.yaml
+Um exemplo de comando de como seria rodar o SPLACE pode ser visto abaixo:
+
+```shell
+/aula/splace/splace_v3.sh -l gb/ -t 8 -o Araceae -g genes_list.txt -y gb -f CDS
 ```
-
-But remember❗ You cannot run the commands above directly in the terminal. Copy the file `/home/program2/src/PIMBA_smk/scripts/pimba_plot.slurm` to your folder. Open the file after you have pasted it to your work directory to see if everything is correctly set. Then, submit the job to the processing queue:
-
-```console
-sbatch pimba_plot.slurm
-```
- 
-The list of plots that pimba_plot.sh will generate:
-
-alpha_diversity_dotplot.svg\
-rarefaction_curve2.svg\
-cluster_dendogram.svg\
-phylum_barplots.svg\
-class_barplots.svg\
-order_barplots.svg\
-family_barplots.svg\
-genus_barplots.svg\
