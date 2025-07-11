@@ -56,13 +56,14 @@ O comando e os parâmetros necessários para rodar o SPLACE podem ser vistos aba
 /aula/splace/splace_v3.sh -l <files directory> -t <num_threads> -o <output_name> -g <genes_list> -s <separator> -y <format_files> -f <feature>
 ```
 
--l	Diretório com os arquivos FASTA ou GENBANK a serem incluídos na análise;\
--t <num_threads>	Número de threads a serem usadas na etapa de alinhamento. Default é 1 thread;\
--o <output_name>	Nome do arquivo a ser gerado contendo o resultado;\
--g <genes_list>	Se você fornecer uma lista com o nome dos genes a serem incluídos na análise, qualquer organimo que não possuir certo gene terá a informação de gene faltante ('?') na supermatriz gerada. Se não for fornecida uma lista de genes, a análise é feita apenas com os genes compartilhados;\
--s	Símbolo do separador usado para distinguir o nome do gene e qualquer outra informação nos arquivos FASTA dos organismos.\
--y <format_files>	Formato dos arquivos presente no diretório a ser analisada. Pode ser "fasta" ou "gb", sem aspas.\
--f	Se estiver utilizando "-y gb", defina se quer incluir "CDS", "tRNA" ou "rRNA" (sem aspas).\
+-l	Diretório com os arquivos FASTA ou GENBANK a serem incluídos na análise; 
+
+-t <num_threads>	Número de threads a serem usadas na etapa de alinhamento. Default é 1 thread; \
+-o <output_name>	Nome do arquivo a ser gerado contendo o resultado; \
+-g <genes_list>	Se você fornecer uma lista com o nome dos genes a serem incluídos na análise, qualquer organimo que não possuir certo gene terá a informação de gene faltante ('?') na supermatriz gerada. Se não for fornecida uma lista de genes, a análise é feita apenas com os genes compartilhados; \ 
+-s	Símbolo do separador usado para distinguir o nome do gene e qualquer outra informação nos arquivos FASTA dos organismos. \
+-y <format_files>	Formato dos arquivos presente no diretório a ser analisada. Pode ser "fasta" ou "gb", sem aspas. \
+-f	Se estiver utilizando "-y gb", defina se quer incluir "CDS", "tRNA" ou "rRNA" (sem aspas). \
 
 Um exemplo de comando de como seria rodar o SPLACE pode ser visto abaixo:
 
