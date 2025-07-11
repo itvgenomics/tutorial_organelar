@@ -23,6 +23,13 @@ Primeiro entre no ambiente que estamos utilizando para a aula:
 ```console
 ssh <seu_usuario>@172.173.153.176
 ```
+
+Ative o ambiente conda do organpipe (provisório)
+```console
+source /opt/anaconda3/etc/profile.d/conda.sh
+conda activate /home/c0363_ds_usr/.conda/envs/organpipe/
+```
+
 Após entrar no ambiente, vá para a sua pasta dentro do diretório alunos:
 ```console
 cd /aula/alunos/<sua_pasta>
