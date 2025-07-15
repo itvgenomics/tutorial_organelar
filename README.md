@@ -351,3 +351,19 @@ bash OrganPipe.sh -d . -c config.yaml -t 4 -sifdir /aula/sifdir -rerun
 
 >Caso dê algum erro, copie novamente os arquivos do organpipe: cp -r /aula/organpipe/* .
 
+## Verificando o arquivo config.yaml
+
+Recentemente o OrganPipe foi atualizado para poder verificar automaticamente se o arquivo config esta correto. Para isso, execute os seguintes comando, caso não tenha feito:
+Verifique que voce esta na pasta: `/aula/alunos/<usuario>`, aonde estão os arquivos do OrganPipe.
+
+```bash
+cp /aula/organpipe/workflow/scripts/check_config.py workflow/scripts/
+```
+
+```bash
+cp /aula/organpipe/OrganPipe.sh .
+```
+
+```bash
+bash OrganPipe.sh -d . -c config/config.yaml -t 4 -sifdir /aula/sifdir -np
+```
